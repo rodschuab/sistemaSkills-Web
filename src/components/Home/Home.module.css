@@ -1,0 +1,309 @@
+.homeContainer {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+}
+
+.mainContent {
+  padding: 50px 20px 30px; /* ✅ AUMENTADO: mais espaço no topo */
+}
+
+.pageHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.pageHeader h2 {
+  margin: 0;
+  color: #333;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.adicionarBtn {
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.erro {
+  text-align: center;
+  padding: 40px 20px;
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 60px 20px;
+  color: #6c757d;
+}
+
+.emptyIcon {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+
+.emptyState h3 {
+  margin: 0 0 15px 0;
+  color: #495057;
+  font-size: 24px;
+}
+
+.emptyState p {
+  font-size: 16px;
+  max-width: 400px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+.skillsList {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+.skillCard {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.skillCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.skillHeader {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.skillImage {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+.skillImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid #e9ecef;
+}
+
+.skillImageFallback {
+  display: none;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.skillDetails {
+  flex: 1;
+}
+
+.skillDetails h3 {
+  margin: 0 0 8px 0;
+  color: #333;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.skillVersion {
+  margin: 0 0 8px 0;
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.skillDescription {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.skillActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.levelContainer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.levelContainer label {
+  font-weight: 500;
+  color: #495057;
+  font-size: 14px;
+}
+
+.levelSelect {
+  padding: 6px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  min-width: 60px;
+}
+
+.levelSelect:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+}
+
+.levelSelect:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+/* ✅ NOVO: Estilo para o botão de salvar nível */
+.salvarNivelBtn {
+  padding: 6px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  min-width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.salvarNivelBtn:hover:not(:disabled) {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+.salvarNivelBtn:disabled {
+  background-color: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.removerBtn {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: #dc3545;
+  transition: background-color 0.3s;
+}
+
+.removerBtn:hover {
+  background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    padding: 40px 20px 30px; /* ✅ AJUSTADO: menos espaço no mobile */
+  }
+  
+  .pageHeader {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .pageHeader h2 {
+    font-size: 24px;
+  }
+  
+  .skillsList {
+    grid-template-columns: 1fr;
+  }
+  
+  .skillHeader {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .skillActions {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .levelContainer {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mainContent {
+    padding: 30px 10px 20px; /* ✅ AJUSTADO: ainda menos espaço em telas pequenas */
+  }
+  
+  .skillCard {
+    padding: 15px;
+  }
+  
+  .skillImage {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .skillImageFallback {
+    font-size: 20px;
+  }
+  
+  .levelContainer {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .salvarNivelBtn {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}

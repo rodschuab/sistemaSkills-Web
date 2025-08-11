@@ -1,0 +1,158 @@
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  width: 100%;
+}
+
+.loginForm {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 14px;
+  color: #444;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #111;
+  color: white;
+  font-size: 14px;
+}
+
+.form-input:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.senhaContainer {
+  position: relative;
+}
+
+.botaoMostrarSenha {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  border-radius: 2px;
+  color: #ccc;
+  transition: color 0.3s, background-color 0.3s;
+}
+
+.botaoMostrarSenha:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.checkboxContainer {
+  margin-bottom: 10px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
+.checkboxText {
+  color: #666;
+  font-size: 14px;
+}
+
+.botaoEntrar {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.botaoEntrar:hover:not(:disabled) {
+  background-color: #005fcc;
+}
+
+.botaoCadastro {
+  width: 100%;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  transition: background-color 0.3s;
+}
+
+.botaoCadastro:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.botaoEntrar:disabled,
+.botaoCadastro:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  .loginForm {
+    padding: 30px 20px;
+    margin: 0 10px;
+  }
+  
+  .titulo {
+    font-size: 24px;
+  }
+}

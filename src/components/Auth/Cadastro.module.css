@@ -1,0 +1,80 @@
+.cadastroContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  width: 100%;
+}
+
+.cadastroForm {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.senhaContainer {
+  position: relative;
+}
+
+.botaoMostrarSenha {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  border-radius: 2px;
+  transition: background-color 0.3s;
+}
+
+.botaoMostrarSenha:hover {
+  background-color: #f0f0f0;
+}
+
+.botaoSalvar {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.botaoCancelar {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.botaoSalvar:disabled,
+.botaoCancelar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+@media (max-width: 480px) {
+  .cadastroForm {
+    padding: 30px 20px;
+    margin: 0 10px;
+  }
+  
+  .titulo {
+    font-size: 24px;
+  }
+}

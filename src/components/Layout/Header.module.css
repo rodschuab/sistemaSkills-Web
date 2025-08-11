@@ -1,0 +1,51 @@
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.welcome {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.logoutBtn {
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .headerContent {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+  
+  .logo h1 {
+    font-size: 20px;
+  }
+  
+  .welcome {
+    font-size: 14px;
+  }
+}
