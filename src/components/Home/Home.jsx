@@ -30,10 +30,10 @@ const obterImagemSkill = (skill) => {
   console.log('=================');
   
   const nomeSkill = skill?.nome || skill?.skillNome;
-  console.log('🎯 Nome final extraído:', nomeSkill);
+  
   
   if (nomeSkill && SKILL_IMAGES[nomeSkill]) {
-    console.log('✅ Encontrou:', SKILL_IMAGES[nomeSkill]);
+    console.log('Encontrou:', SKILL_IMAGES[nomeSkill]);
     return SKILL_IMAGES[nomeSkill];
   }
   
@@ -139,21 +139,21 @@ const Home = () => {
       
       if (response && Array.isArray(response)) {
         setMinhasSkills(response);
-        console.log('✅ Skills carregadas:', response.length);
+        console.log(' Skills carregadas:', response.length);
       } else if (response && Array.isArray(response.skills)) {
         setMinhasSkills(response.skills);
-        console.log('✅ Skills carregadas:', response.skills.length);
+        console.log(' Skills carregadas:', response.skills.length);
       } else {
         console.warn('⚠️ Formato de resposta inesperado:', response);
         setMinhasSkills([]);
       }
     } catch (error) {
-      console.error('❌ Erro ao carregar skills do usuário:', error);
+      console.error('Erro ao carregar skills do usuário:', error);
       
       if (error.message && error.message.includes('JSON')) {
         setErro('Erro ao processar dados do servidor. Tente novamente.');
       } else if (error.response?.status === 404) {
-        console.log('ℹ️ Usuário ainda não possui skills');
+        console.log('ℹ Usuário ainda não possui skills');
         setMinhasSkills([]);
         setErro(''); 
       } else if (error.response?.status === 401) {
@@ -179,7 +179,7 @@ const Home = () => {
 
     setSalvando(true);
     try {
-      console.log('🚀 Associando skill:', {
+      console.log(' Associando skill:', {
         usuarioId: usuario.id,
         skillId: skill.id,
         nivel: 1
@@ -250,7 +250,7 @@ const Home = () => {
     setSalvandoNivel(prev => ({ ...prev, [skillId]: true }));
 
     try {
-      console.log('💾 Salvando nível:', {
+      console.log(' Salvando nível:', {
         usuarioId: usuario.id,
         skillId: skillId,
         nivel: parseInt(nivel)

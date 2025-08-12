@@ -57,8 +57,7 @@ const Login = ({ aoMudarParaCadastro }) => {
   const submeterForm = async (e) => {
     e.preventDefault();
     
-    console.log('🔍 Iniciando processo de login...');
-    console.log('📝 Dados do formulário:', { login: formData.login, senha: '***' });
+  
     
     if (!formData.login || !formData.senha) {
       setErro('Por favor, preencha todos os campos');
@@ -69,31 +68,20 @@ const Login = ({ aoMudarParaCadastro }) => {
     setErro('');
 
     try {
-      console.log('🌐 Fazendo requisição para o servidor...');
-      
       const resposta = await authService.login({
         login: formData.login,
         senha: formData.senha
       });
 
-      console.log('✅ Resposta do servidor recebida:', resposta);
-      console.log('🔑 Token recebido:', resposta.token ? 'SIM' : 'NÃO');
-      
-      // Verificar diferentes formatos de resposta do usuário
       let dadosUsuario = null;
       if (resposta.usuario) {
         dadosUsuario = resposta.usuario;
-        console.log('👤 Usuário encontrado em resposta.usuario');
       } else if (resposta.user) {
         dadosUsuario = resposta.user;
-        console.log('👤 Usuário encontrado em resposta.user');
       } else {
-        // Se não tem campo específico, usar toda a resposta exceto o token
         dadosUsuario = { ...resposta };
         delete dadosUsuario.token;
-        console.log('👤 Usando resposta completa como dados do usuário');
       }
-      
       console.log('👤 Dados do usuário:', dadosUsuario);
 
       if (!resposta.token) {
@@ -108,17 +96,16 @@ const Login = ({ aoMudarParaCadastro }) => {
         return;
       }
 
-      // Normalizar o campo id se vier como usuarioId
       if (dadosUsuario.usuarioId && !dadosUsuario.id) {
         dadosUsuario.id = dadosUsuario.usuarioId;
         console.log('🔄 Normalizando usuarioId para id:', dadosUsuario.id);
       }
 
       // Salvar token e dados do usuário
-      console.log('💾 Salvando token...');
+      console.log(' Salvando token');
       salvarToken(resposta.token);
       
-      console.log('💾 Salvando usuário...');
+      console.log(' Salvando usuário');
       salvarUsuario(dadosUsuario);
 
       // Verificar se os dados foram salvos corretamente
@@ -131,37 +118,37 @@ const Login = ({ aoMudarParaCadastro }) => {
       console.log('ID do usuário:', usuarioSalvo?.id ? usuarioSalvo.id : 'NÃO ENCONTRADO');
 
       if (!tokenSalvo) {
-        console.error('❌ Erro: Token não foi salvo corretamente');
+        console.error(' Erro: Token não foi salvo corretamente');
         setErro('Erro ao salvar dados de login');
         return;
       }
 
       if (!usuarioSalvo || !usuarioSalvo.id) {
-        console.error('❌ Erro: Usuário não foi salvo corretamente');
+        console.error(' Erro: Usuário não foi salvo corretamente');
         setErro('Erro ao salvar dados do usuário');
         return;
       }
 
       // Salvar senha se o usuário escolheu lembrar
       if (lembrarSenha) {
-        console.log('💾 Salvando senha...');
+        console.log(' Salvando senha...');
         salvarSenha(formData.senha);
       }
 
-      console.log('🚀 Redirecionando para /home...');
+      console.log(' Redirecionando para /home...');
       
       // Tentar diferentes métodos de redirecionamento
       try {
         navigate('/home', { replace: true });
-        console.log('✅ navigate() executado');
+        console.log(' navigate() executado');
       } catch (navError) {
-        console.error('❌ Erro no navigate:', navError);
-        console.log('🔄 Tentando window.location...');
+        console.error(' Erro no navigate:', navError);
+        console.log(' Tentando window.location');
         window.location.href = '/home';
       }
 
     } catch (error) {
-      console.error('❌ Erro no login:', error);
+      console.error(' Erro no login:', error);
       console.error('Detalhes do erro:', {
         message: error.message,
         response: error.response?.data,

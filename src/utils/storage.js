@@ -1,4 +1,3 @@
-// Utilitários para localStorage relacionados às preferências do usuário
 export const salvarPreferenciaSenha = (lembrar) => {
   if (lembrar) {
     localStorage.setItem('lembrar_senha', 'true');

@@ -7,18 +7,16 @@ import Home from './components/Home/Home';
 import './components/styles/global.css';
 import styles from './App.module.css';
 
-// Componente para proteger rotas que precisam de autenticação
 const RotaProtegida = ({ children }) => {
   return estaAutenticado() ? children : <Navigate to="/" replace />;
 };
 
-// Componente para redirecionar usuários autenticados da página de login
 const RotaPublica = ({ children }) => {
   return !estaAutenticado() ? children : <Navigate to="/home" replace />;
 };
 
 const App = () => {
-  const [telaAtiva, setTelaAtiva] = useState('login'); // 'login' ou 'cadastro'
+  const [telaAtiva, setTelaAtiva] = useState('login'); 
 
   const TelaAuth = () => {
     return (
@@ -52,7 +50,7 @@ const App = () => {
               </RotaProtegida>
             } 
           />
-          {/* Rota catch-all - redireciona para home se autenticado, senão para login */}
+          {/* Rota catch-all - redireciona para home se autenticado, senao paro login */}
           <Route 
             path="*" 
             element={

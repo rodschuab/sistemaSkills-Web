@@ -23,7 +23,7 @@ const Cadastro = ({ aoVoltarParaLogin }) => {
       ...prev,
       [name]: value
     }));
-    // Limpar mensagens ao digitar
+   
     if (erro) setErro('');
     if (sucesso) setSucesso('');
   };
@@ -73,7 +73,7 @@ const Cadastro = ({ aoVoltarParaLogin }) => {
 
       setSucesso('Cadastro realizado com sucesso! Redirecionando para login...');
       
-      // espear 2 segundos e voltar para login
+     
       setTimeout(() => {
         aoVoltarParaLogin();
       }, 2000);
