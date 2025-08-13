@@ -356,9 +356,9 @@ const Home = () => {
           </div>
         ) : minhasSkills.length === 0 ? (
           <div className={styles.emptyState}>
-            <div className={styles.emptyIcon}>🎯</div>
+          
             <h3>Você ainda não possui skills!</h3>
-            <p>Clique no botão "Adicionar Skill" para começar a construir seu perfil.</p>
+            <p>Clique no botão "Adicionar Skill" para adicionar skills ao seu perfil.</p>
           </div>
         ) : (
           <div className={styles.skillsList}>
